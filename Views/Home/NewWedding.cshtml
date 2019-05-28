@@ -1,0 +1,35 @@
+<div class="head">
+    <h1>Plan Your Wedding</h1>
+    <a href="/Dashboard">Dashboard</a>
+    <a href="/logout">Log Out</a>
+</div>
+@model Wedding
+<form asp-action="CreateWedding" asp-controller="Home" method="POST">
+    <div class="row">
+        <span asp-validation-for="WedderOne"></span><br>
+        <label asp-for="WedderOne"></label>
+        <input type="text" asp-for="WedderOne">
+    </div>
+    <div class="row">
+        <span asp-validation-for="WedderTwo"></span><br>
+        <label asp-for="WedderTwo"></label>
+        <input type="text" asp-for="WedderTwo">
+    </div>
+    <div class="row">
+        <span asp-validation-for="WeddDate"></span><br>
+        <label asp-for="WeddDate"></label>
+        <input type="date" asp-for="WeddDate" id="weddDate">
+    </div>
+    <div class="row">
+        <span asp-validation-for="WeddAddress"></span><br>
+        <label asp-for="WeddAddress"></label>
+        <input type="text" asp-for="WeddAddress">
+    </div>
+    <div class="row">
+        <input type="submit" value="Create">
+    </div>
+</form>
+<script>
+    let today = new Date().toISOString().substr(0, 10);
+    document.querySelector("#weddDate").value = today;
+</script>

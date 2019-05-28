@@ -1,0 +1,15 @@
+<div class="head">
+    <h1>@ViewBag.ThisWedding.WedderOne and @ViewBag.ThisWedding.WedderTwo's Wedding</h1>
+    <a href="/Dashboard">Dashboard</a>
+    <a href="/logout">Log Out</a>
+</div>
+<div class="info">
+    <h3>Date: @ViewBag.ThisWedding.WeddDate.ToString("MMMM d, yyyy")</h3>
+    <h4>Guests:</h4>
+    <ul>
+        @foreach (var g in ViewBag.AllGuests)
+        {
+            <li>@g.User.FirstName @g.User.LastName</li>
+        }
+    </ul>
+</div>

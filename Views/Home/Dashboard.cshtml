@@ -1,0 +1,49 @@
+<div class="head">
+    <h1>Welcome to the Wedding Planner</h1>
+    <a href="/logout">Log Out</a>
+</div>
+<table class="table table-striped table-bordered">
+    <thead>
+        <th>Wedding</th>
+        <th>Date</th>
+        <th># of Guests</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        @if (ViewBag.AllWeddings != null)
+        {
+            @foreach (var w in ViewBag.AllWeddings)
+            {
+                <tr>
+                    <td><a href="/Wedding/@w.WeddingId">@w.WedderOne & @w.WedderTwo</a></td>
+                    <td>@w.WeddDate.ToString("MMM d, yyyy")</td>
+                    <td>@w.WeddingAttendees.Count</td>
+                    @if (w.PlannerId == ViewBag.UserId)
+                    {
+                        <td><a href="/delete/@w.WeddingId">Delete</a></td>
+                    }
+                    else
+                    {
+                        int temp = 0;
+                        @foreach (var a in w.WeddingAttendees)
+                        {
+                            if (a.User.UserId == ViewBag.UserId)
+                            {
+                                temp = a.AttendanceId;
+                            }
+                        }
+                        @if (temp == 0)
+                        {
+                            <td><a href="/rsvp/@w.WeddingId">RSVP</a></td>
+                        }
+                        else
+                        {
+                            <td><a href="/unrsvp/@temp">Un-RSVP</a></td>
+                        }
+                    }
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<button><a class="btn" href="/NewWedding">New Wedding</a></button>

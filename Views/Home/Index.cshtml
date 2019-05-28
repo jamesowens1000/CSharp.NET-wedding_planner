@@ -1,0 +1,48 @@
+﻿@model IndexViewModel
+<form asp-action="TryRegister" asp-controller="Home" method="POST">
+    <h1>Register</h1>
+    <div class="row">
+        <span asp-validation-for="RegUser.FirstName"></span><br>
+        <label asp-for="RegUser.FirstName"></label>
+        <input type="text" asp-for="RegUser.FirstName">
+    </div>
+    <div class="row">
+        <span asp-validation-for="RegUser.LastName"></span><br>
+        <label asp-for="RegUser.LastName"></label>
+        <input type="text" asp-for="RegUser.LastName">
+    </div>
+    <div class="row">
+        <span asp-validation-for="RegUser.Email"></span><br>
+        <label asp-for="RegUser.Email"></label>
+        <input type="text" asp-for="RegUser.Email">
+    </div>
+    <div class="row">
+        <span asp-validation-for="RegUser.Password"></span><br>
+        <label asp-for="RegUser.Password"></label>
+        <input type="password" asp-for="RegUser.Password">
+    </div>
+    <div class="row">
+        <span asp-validation-for="RegUser.Confirm"></span><br>
+        <label asp-for="RegUser.Confirm"></label>
+        <input type="password" asp-for="RegUser.Confirm">
+    </div>
+    <div class="row">
+        <input type="submit" value="Register">
+    </div>
+</form>
+<form asp-action="TryLogin" asp-controller="Home" method="POST">
+    <h1>Login</h1>
+    <div class="row">
+        <span asp-validation-for="LogUser.Email"></span><br>
+        <label asp-for="LogUser.Email"></label>
+        <input type="text" asp-for="LogUser.Email">
+    </div>
+    <div class="row">
+        <span asp-validation-for="LogUser.Password"></span><br>
+        <label asp-for="LogUser.Password"></label>
+        <input type="password" asp-for="LogUser.Password">
+    </div>
+    <div class="row">
+        <input type="submit" value="Log In">
+    </div>
+</form>
